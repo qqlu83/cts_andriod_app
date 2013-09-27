@@ -1,8 +1,6 @@
 package com.example.cts;
 
 import android.os.Bundle;
-
-
 import org.apache.cordova.*;
 
 public class MainActivity extends DroidGap {
@@ -12,5 +10,4 @@ public class MainActivity extends DroidGap {
         super.onCreate(savedInstanceState);
         super.loadUrl("file:///android_asset/www/index.html");
     }  
-} 
-    
+}            

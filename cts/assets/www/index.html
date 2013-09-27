@@ -1,12 +1,43 @@
 <!doctype html>
 <html>
- <head>
-  <title>tittle</title>
-  <script>
-   window.location='http://m.cts.com.tw/index_app.php';
-  </script>
- <body>  
- </body>
+<head>
+<title>tittle</title> 
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for PhoneGap to load
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+		states[Connection.UNKNOWN]  = '1';
+        states[Connection.ETHERNET] = '2';
+        states[Connection.WIFI]     = '3';
+		states[Connection.CELL_2G]  = '4';
+        states[Connection.CELL_3G]  = '5';
+        states[Connection.CELL_4G]  = '6';
+        states[Connection.NONE]     = '7';
+		
+		if(states[networkState]<'7')
+		window.location='http://m.cts.com.tw/index_app.php';
+		else
+        alert('無網路連線，請檢查網路狀態');
+    }
+
+    </script>	
+</head>
+
+<body background="img/back.jpg">  
+</body>
 </html>
 
 
